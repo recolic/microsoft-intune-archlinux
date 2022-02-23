@@ -35,5 +35,9 @@ Copy the following files from enrolled Level-2 machine to unenrolled Level-1 mac
 /home/YourName/.local/share/keyrings/login.keyring
 ```
 
-Reboot, and your level-1 machine can access CORPNET resources! 
+Reboot. 
+
+Run `seahorse` to double-confirm your "login" keyring is not empty. It may ask you to enter the previous keyring password. 
+
+You are all set! 
 

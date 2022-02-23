@@ -1,0 +1,30 @@
+# Maintainer: Recolic K <root@recolic.net>
+
+pkgname=msft-identity-broker
+pkgver=1.0.6
+pkgrel=1
+pkgdesc="msft-identity-broker"
+url="https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/m/msft-identity-broker"
+license=("GPL2")
+arch=("x86_64")
+depends=("dbus" "gnome-keyring" "systemd" "jre11-openjdk")
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+source=("source.deb::$url/${pkgname}_${pkgver}_amd64.deb")
+validpgpkeys=("")
+sha256sums=("5523be2d7b0a502b34268f94b1c95d4a892500b1ab69a1ab0e9c9cafb7c62bbb")
+install=x.install
+
+package() {
+  cd "$srcdir"
+  ar x source.deb
+  tar xvzf data.tar.gz
+  echo "Patching... (Hardcode archlinux java11 JAVA_HOME into xxx.service)"
+  echo 'Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk"' >> "$srcdir/usr/lib/systemd/system/msft-identity-device-broker.service"
+  echo 'Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk"' >> "$srcdir/usr/lib/systemd/user/msft-identity-broker.service"
+  cp -r "$srcdir/usr" "$srcdir/opt" "$pkgdir/"
+}
+
+
