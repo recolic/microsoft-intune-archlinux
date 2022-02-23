@@ -7,7 +7,8 @@ After installing level-2, you can actually enroll the machine.
 
 ## Install Level-1
 
-1. Install 
+1. Install `libsdbus-c++0 msalsdk-dbusclient msft-identity-broker` packages in this repo. 
+2. Install `microsoft-edge-dev-bin` from AUR. 
 
 ## Install Level-2 and enroll
 
@@ -40,4 +41,13 @@ Reboot.
 Run `seahorse` to double-confirm your "login" keyring is not empty. It may ask you to enter the previous keyring password. 
 
 You are all set! 
+
+## FAQ and debug
+
+If your edge browser is not allowing you to login, check the following logs: 
+
+1. Any error message in `journalctl --user -u msft-identity-broker.service`?
+2. Any error message in `sudo journalctl -u msft-identity-device-broker.service`? 
+3. Run `seahorse` and is there Intune entries in your `login` keyring? 
+4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
 
