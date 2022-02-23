@@ -18,7 +18,10 @@ validpgpkeys=("6861D89984E7887F0FFE6E08C344D5EAE3933636")
 sha256sums=("3c534db269fdf6b3f52b48c0f10ca2065c41473e5de11717368f9d39cc734e89")
 
 package() {
+  cd "$srcdir"
   ar x source.deb
   tar xvJf data.tar.xz
+  mkdir -p "$pkgdir/usr/lib"
+  cp usr/lib/x86_64-linux-gnu/libsdbus-c++.so.0.8.3 "$pkgdir/usr/lib/"
 }
 
