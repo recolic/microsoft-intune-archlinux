@@ -48,6 +48,6 @@ If your edge browser is not allowing you to login, check the following logs:
 
 1. Any error message in `journalctl --user -u msft-identity-broker.service`?
 2. Any error message in `sudo journalctl -u msft-identity-device-broker.service`? 
-3. Run `seahorse` and is there Intune entries in your `login` keyring? 
+3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
 
