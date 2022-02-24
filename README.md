@@ -12,7 +12,7 @@ After installing level-2, you can actually enroll the machine.
 
 ## Install Level-2 and enroll
 
-> Installing level-2 components will make your machine managed. You must satisfy password requirements, and disk-encryption requirements. 
+> Installing level-2 components will make your machine managed. You must satisfy password requirements, and disk-encryption requirements. Ref: <https://aka.ms/LinuxPortal>
 
 TBD
 
