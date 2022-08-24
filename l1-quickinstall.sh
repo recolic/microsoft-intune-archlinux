@@ -2,11 +2,10 @@
 
 function i () {
     cd "$1" &&
-        makepkg -i &&
-        cd -
+        makepkg -i
 }
 
-i libsdbus-c++0
-i msft-identity-broker
-i msalsdk-dbusclient
+( i libsdbus-c++0 )
+( i msft-identity-broker )
+( i msalsdk-dbusclient )
 
