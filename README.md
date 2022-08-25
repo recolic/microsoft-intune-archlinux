@@ -20,6 +20,8 @@ Use a Ubuntu 20.04 VM to perform level-2 enroll. ArchLinux level-2 enroll is the
 2. copy /etc/os-release from ubuntu 2004 to archlinux
 3. make sure you followed procedure of official doc
 
+It's suggested to keep the Ubuntu VM powered-on forever, to keep the certificate valid. 
+
 ## Move certificates from Level-2 machine to Level-1 machine
 
 > You need to keep your level-2 machine running, or your certificate will invalidate in 1 month. 
