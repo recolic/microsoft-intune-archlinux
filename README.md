@@ -64,3 +64,7 @@ This is a permission issue. Please run `chmod 777 -R /opt/msft` as root and rest
 - msft-identity-broker.service: Failed to set up special execution directory in /home/YourName/.config: Operation not permitted
 
 This is also a permission issue while overwritting user config with root account manually. Please run `chown -R YourName /home/YourName/.config` and restart the service. 
+
+- Failed to decrypt with key:LinuxBrokerRegularUserSecretKey thumbprint
+
+Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
