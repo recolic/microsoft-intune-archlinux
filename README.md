@@ -51,3 +51,12 @@ If your edge browser is not allowing you to login, check the following logs:
 3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
 
+### Common errors
+
+- msft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/msft/identitybroker/bin/msft-identity-broker: Operation not permitted
+
+This is a permission issue. Please run `chmod 777 -R /opt/msft` as root. 
+
+- msft-identity-broker.service: Failed to set up special execution directory in /home/USERNAME/.config: Operation not permitted
+
+This is also a permission issue while overwritting user config with root account manually. Please run `chown -R USERNAME /home/USERNAME/.config`. 
