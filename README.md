@@ -57,6 +57,6 @@ If your edge browser is not allowing you to login, check the following logs:
 
 This is a permission issue. Please run `chmod 777 -R /opt/msft` as root. 
 
-- msft-identity-broker.service: Failed to set up special execution directory in /home/USERNAME/.config: Operation not permitted
+- msft-identity-broker.service: Failed to set up special execution directory in /home/YourName/.config: Operation not permitted
 
-This is also a permission issue while overwritting user config with root account manually. Please run `chown -R USERNAME /home/USERNAME/.config`. 
+This is also a permission issue while overwritting user config with root account manually. Please run `chown -R YourName /home/YourName/.config`. 
