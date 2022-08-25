@@ -36,9 +36,9 @@ Copy the following files from enrolled Level-2 machine to unenrolled Level-1 mac
 /home/YourName/.local/share/keyrings/login.keyring
 ```
 
-Reboot. 
+**Reboot** to make sure gnome-keyring-daemon is using the latest keyring file. 
 
-Run `seahorse` to double-confirm your "login" keyring is not empty. It may ask you to enter the previous keyring password. 
+Then, run `seahorse` to double-confirm your "login" keyring is not empty. It may ask you to enter the previous keyring password. 
 
 You are all set! 
 
