@@ -3,7 +3,7 @@
 There are two levels of Intune Setup. 
 
 After installing level-1, you can access everything with certificate copied from a level-2 machine.   
-After installing level-2, you can actually enroll the machine. 
+After installing level-2, you can actually enroll the machine and get a certificate. 
 
 ## Install Level-1
 
