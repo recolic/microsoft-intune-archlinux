@@ -7,7 +7,7 @@ After installing level-2, you can actually enroll the machine.
 
 ## Install Level-1
 
-1. Install `libsdbus-c++0 msalsdk-dbusclient msft-identity-broker` packages in this repo. 
+1. Install `libsdbus-c++0 msalsdk-dbusclient msft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
 2. Install `microsoft-edge-dev-bin` from AUR. 
 
 ## Install Level-2 and enroll
