@@ -73,7 +73,7 @@ Run `seahorse` and make sure your **default** keyring is unlocked, and contains 
 
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
 
-If your Microsoft Edge crashes immediately on startup because of SIGSEGV. 
+If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GDB shows `Thread 107 "ThreadPoolForeg" received signal SIGSEGV, Segmentation fault.`
 
 Firstly, stop all msft-identity-broker services, uninstall `msft-identity-broker` and try again. If the problem is resolved, use the following solution: 
 
