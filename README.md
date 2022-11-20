@@ -14,7 +14,7 @@ After installing level-2, you can actually enroll the machine and get a certific
 
 > Installing level-2 components will make your machine managed. You must satisfy password requirements, and disk-encryption requirements. Ref: <https://aka.ms/LinuxPortal>
 
-Use a Ubuntu 20.04 VM to perform level-2 enroll. ArchLinux level-2 enroll is theoretically supported, but I never tested it. 
+Use a Ubuntu **20.04** VM to perform level-2 enroll. ArchLinux level-2 enroll is theoretically supported, but I never tested it. 
 
 1. install intune-portal and its dependencies (pwquality)
 2. copy /etc/os-release from ubuntu 2004 to archlinux
@@ -68,3 +68,11 @@ This is also a permission issue while overwritting user config with root account
 - Failed to decrypt with key:LinuxBrokerRegularUserSecretKey thumbprint
 
 Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
+
+- Microsoft Edge crashed immediately on startup (SIGSEGV)
+
+If your Microsoft Edge crashes immediately on startup because of SIGSEGV. 
+
+Firstly, stop all msft-identity-broker services, uninstall `msft-identity-broker` and try again. If the problem is still not resolved, investigate your Microsoft Edge.
+
+If the crash is caused by msft-identity-broker, you must delete everything in `~/.config/msft-identity-broker/` and `/var/lib/msft-identity-device-broker/`. Stop these services and perform your enrollment again.
