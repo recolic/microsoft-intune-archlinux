@@ -59,7 +59,7 @@ If your edge browser is not allowing you to login, check the following logs:
 
 - msft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/msft/identitybroker/bin/msft-identity-broker: Operation not permitted
 
-This is a permission issue. Please run `chmod 777 -R /opt/msft` as root and restart the service. 
+This is a permission issue. Please run `chmod 777 -R /opt/msft` as root, **and** run `chown -R YourName /home/YourName/.config`, and restart the service. 
 
 - msft-identity-broker.service: Failed to set up special execution directory in /home/YourName/.config: Operation not permitted
 
