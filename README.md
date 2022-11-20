@@ -69,6 +69,8 @@ This is also a permission issue while overwritting user config with root account
 
 Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
 
+<!--
+
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
 
 If your Microsoft Edge crashes immediately on startup because of SIGSEGV. 
@@ -79,3 +81,4 @@ Firstly, stop all msft-identity-broker services, uninstall `msft-identity-broker
 2. Delete `~/.config/microsoft-edge-xxx` and `~/.cache/microsoft-edge-xxx`, and launch your microsoft edge for the first time. (Finish the initial configuration)
 3. Install `msft-identity-broker` and enroll it again.
 4. Launch Microsoft Edge and login. It should not crash now.
+-->
