@@ -69,16 +69,9 @@ This is also a permission issue while overwritting user config with root account
 
 Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
 
-<!--
-
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
 
 If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GDB shows `Thread 107 "ThreadPoolForeg" received signal SIGSEGV, Segmentation fault.`
 
-Firstly, stop all msft-identity-broker services, uninstall `msft-identity-broker` and try again. If the problem is resolved, use the following solution: 
+Downgrade the `tpm2-tss` package to `3.2.0-1`, and add it into `IgnorePkg` to prevent it from being upgraded again.
 
-1. Uninstall `msft-identity-broker` and delete everything in `~/.config/msft-identity-broker/` and `/var/lib/msft-identity-device-broker/`.
-2. Delete `~/.config/microsoft-edge-xxx` and `~/.cache/microsoft-edge-xxx`, and launch your microsoft edge for the first time. (Finish the initial configuration)
-3. Install `msft-identity-broker` and enroll it again.
-4. Launch Microsoft Edge and login. It should not crash now.
--->
