@@ -8,7 +8,8 @@ After installing level-2, you can actually enroll the machine and get a certific
 ## Install Level-1
 
 1. Install `libsdbus-c++0 msalsdk-dbusclient msft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
-2. Install `microsoft-edge-dev-bin` from AUR. 
+2. Install `microsoft-edge-stable-bin` from AUR. 
+3. `[Temporary Fix]` Downgrade `tpm2-tss` to `3.2.0-1`, and add it to `IgnorePkg` in `/etc/pacman.conf`.
 
 ## Install Level-2 and enroll
 
