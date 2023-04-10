@@ -76,3 +76,6 @@ If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GD
 
 Downgrade the `tpm2-tss` package to `3.2.0-1`, and add it into `IgnorePkg` to prevent it from being upgraded again.
 
+- Everything seems fine, no error in log, but Edge still says 'Unable to setup sync'
+
+Sign out and sign in again.
