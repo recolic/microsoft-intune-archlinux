@@ -79,3 +79,8 @@ Downgrade the `tpm2-tss` package to `3.2.0-1`, and add it into `IgnorePkg` to pr
 - Everything seems fine, no error in log, but Edge still says `Not Syncing`
 
 Sign out and sign in again.
+
+- Cannot find directory `.../msft-identity-broker/...`
+
+This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Remember to rename it while copy files around.
+
