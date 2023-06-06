@@ -7,7 +7,7 @@ After installing level-2, you can actually enroll the machine and get a certific
 
 ## Install Level-1
 
-1. Install `libsdbus-c++0 msalsdk-dbusclient msft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
+1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
 2. Install `microsoft-edge-stable-bin` from AUR. 
 3. `[Temporary Fix]` Downgrade `tpm2-tss` to `3.2.0-1`, and add it to `IgnorePkg` in `/etc/pacman.conf`.
 
@@ -30,12 +30,12 @@ It's suggested to keep the Ubuntu VM powered-on forever, to keep the certificate
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
 ```
-/var/lib/msft-identity-device-broker/1000.db
+/var/lib/microsoft-identity-device-broker/1000.db
 /etc/machine-id
 /etc/os-release # Note: this is a symbol-link in ubuntu
-/home/YourName/.config/msft-identity-broker/account-data.db
-/home/YourName/.config/msft-identity-broker/broker-data.db
-/home/YourName/.config/msft-identity-broker/cookies.db
+/home/YourName/.config/microsoft-identity-broker/account-data.db
+/home/YourName/.config/microsoft-identity-broker/broker-data.db
+/home/YourName/.config/microsoft-identity-broker/cookies.db
 /home/YourName/.local/share/keyrings/login.keyring
 ```
 
@@ -51,8 +51,8 @@ You are all set!
 
 If your edge browser is not allowing you to login, check the following logs: 
 
-1. Any error message in `journalctl --user -u msft-identity-broker.service`?
-2. Any error message in `sudo journalctl -u msft-identity-device-broker.service`? 
+1. Any error message in `journalctl --user -u microsoft-identity-broker.service`?
+2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
 3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
 
@@ -60,11 +60,11 @@ If your edge browser is not allowing you to login, check the following logs:
 
 #### ArchLinux side
 
-- msft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/msft/identitybroker/bin/msft-identity-broker: Operation not permitted
+- microsoft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/microsoft/identitybroker/bin/microsoft-identity-broker: Operation not permitted
 
-This is a permission issue. Please run `chmod 777 -R /opt/msft` as root, **and** run `chown -R YourName /home/YourName/.config`, and restart the service. 
+This is a permission issue. Please run `chmod 777 -R /opt/microsoft` as root, **and** run `chown -R YourName /home/YourName/.config`, and restart the service. 
 
-- msft-identity-broker.service: Failed to set up special execution directory in /home/YourName/.config: Operation not permitted
+- microsoft-identity-broker.service: Failed to set up special execution directory in /home/YourName/.config: Operation not permitted
 
 This is also a permission issue while overwritting user config with root account manually. Please run `chown -R YourName /home/YourName/.config` and restart the service. 
 
@@ -84,7 +84,7 @@ Sign out and sign in again.
 
 - Cannot find directory `.../msft-identity-broker/...`
 
-This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Remember to rename it while copy files around.
+This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Either upgrade your identity broker, or rename things manually (might be error-prone).
 
 #### Ubuntu side (officially supported)
 
