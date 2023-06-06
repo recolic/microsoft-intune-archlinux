@@ -58,6 +58,8 @@ If your edge browser is not allowing you to login, check the following logs:
 
 ### Common errors
 
+#### ArchLinux side
+
 - msft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/msft/identitybroker/bin/msft-identity-broker: Operation not permitted
 
 This is a permission issue. Please run `chmod 777 -R /opt/msft` as root, **and** run `chown -R YourName /home/YourName/.config`, and restart the service. 
@@ -83,4 +85,14 @@ Sign out and sign in again.
 - Cannot find directory `.../msft-identity-broker/...`
 
 This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Remember to rename it while copy files around.
+
+#### Ubuntu side (officially supported)
+
+- Cannot log into intune-portal, something went wrong (2400)
+
+Uninstall intune-portal and all other microsoft packages. Do `apt update` and install it again.
+
+- Cannot log into intune-portal, something went wrong (1001)
+
+Simply try again. It will work.
 
