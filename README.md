@@ -68,9 +68,12 @@ This is a permission issue. Please run `chmod 777 -R /opt/microsoft` as root, **
 
 This is also a permission issue while overwritting user config with root account manually. Please run `chown -R YourName /home/YourName/.config` and restart the service. 
 
-- Failed to decrypt with key:LinuxBrokerRegularUserSecretKey thumbprint
+- Failed to decrypt with key:LinuxBrokerRegularUserSecretKey thumbprint, Tried all decryption keys and decryption still fails
 
-Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
+Possible reason and solution:
+
+1. Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
+2. The cert in keyring doesn't match `microsoft-identity-broker` database. If you just upgraded `microsoft-identity-broker` to a newer version, remove all existing database (including `msft-identity-broker`), and do level-1 installation again.
 
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
 
