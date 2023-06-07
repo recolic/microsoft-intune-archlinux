@@ -7,7 +7,7 @@ pkgdesc="Microsoft Authentication Library cross platform. Dbus client for talkin
 url="https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/m/msalsdk-dbusclient"
 license=("GPL2")
 arch=("x86_64")
-depends=("glibc>=2.14" "gcc-libs>=3.0" "systemd-libs>=243" "libsdbus-c++0" "msft-identity-broker>=1.0")
+depends=("glibc>=2.14" "gcc-libs>=3.0" "systemd-libs>=243" "libsdbus-c++0" "microsoft-identity-broker>=1.0")
 makedepends=()
 conflicts=()
 replaces=()
