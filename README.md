@@ -21,20 +21,17 @@ Use a Ubuntu **20.04** VM to perform level-2 enroll. ArchLinux level-2 enroll is
 2. copy /etc/os-release from ubuntu 2004 to archlinux
 3. make sure you followed procedure of official doc
 
-It's suggested to keep the Ubuntu VM powered-on forever, to keep the certificate valid. 
-
 > Note: modifying `/etc/os-release` might cause problem for dkms. Run `[[ -f /usr/bin/dkms ]] && sed -i 's/sign_file=[^ ]*$/sign_file=Iamnotubuntudonotlookforsignfileplease /g' /usr/bin/dkms` if you are getting dkms error.
 
 ## Move certificates from Level-2 machine to Level-1 machine
 
-> You need to keep your level-2 machine running, or your certificate will invalidate in 1 month. 
+> The certificate will usually expire in 1 month. 
 
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
 ```
 /var/lib/microsoft-identity-device-broker/1000.db
 /etc/machine-id
-/etc/os-release # Note: this is a symbol-link in ubuntu
 /home/YourName/.config/microsoft-identity-broker/account-data.db
 /home/YourName/.config/microsoft-identity-broker/broker-data.db
 /home/YourName/.config/microsoft-identity-broker/cookies.db
