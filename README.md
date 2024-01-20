@@ -25,11 +25,7 @@ Simply follow the official guide. <https://aka.ms/LinuxPortal>
 
 ### For Arch Linux
 
-[TODO: working in progress]
-<!--
-1. install intune-portal and its dependencies (pwquality)
-2. make sure you followed procedure of official doc
--->
+[TODO: working in progress. see arch-l2 branch for preview]
 
 ## Move certificates from Level-2 machine to Level-1 machine
 
