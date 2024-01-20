@@ -1,11 +1,13 @@
 # Intune for Archlinux
 
-There are two levels of Intune Setup. 
+You have two options to access MSFT resources on Arch Linux.
 
-After installing level-1, you can access everything with certificate copied from a level-2 machine.   
-After installing level-2, you can actually enroll the machine and get a certificate. 
+1. Install level-1 & level-2, enroll your Arch machine.
+2. Install level-1 & level-2 in another Ubuntu VM, enroll your Ubuntu VM. Install level-1 on your Arch, and copy certificate from Ubuntu to Arch.
 
 ## Install Level-1
+
+> To **use** a certificate.
 
 1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
 2. Install `microsoft-edge-stable-bin` from AUR. 
@@ -13,19 +15,25 @@ After installing level-2, you can actually enroll the machine and get a certific
 
 ## Install Level-2 and enroll
 
-> Installing level-2 components will make your machine managed. You must satisfy password requirements, and disk-encryption requirements. Ref: <https://aka.ms/LinuxPortal>
+> To **generate** a certificate.
 
-Use a Ubuntu **20.04** VM to perform level-2 enroll. ArchLinux level-2 enroll is theoretically supported, but I never tested it. 
+> Note: Enrollment makes your machine managed. You must satisfy password requirements, and disk-encryption requirements. Ref: <https://aka.ms/LinuxPortal>
 
+### For Ubuntu
+
+Simply follow the official guide. <https://aka.ms/LinuxPortal>
+
+### For Arch Linux
+
+[TODO: working in progress]
+<!--
 1. install intune-portal and its dependencies (pwquality)
-2. copy /etc/os-release from ubuntu 2004 to archlinux
-3. make sure you followed procedure of official doc
-
-> Note: modifying `/etc/os-release` might cause problem for dkms. Run `[[ -f /usr/bin/dkms ]] && sed -i 's/sign_file=[^ ]*$/sign_file=Iamnotubuntudonotlookforsignfileplease /g' /usr/bin/dkms` if you are getting dkms error.
+2. make sure you followed procedure of official doc
+-->
 
 ## Move certificates from Level-2 machine to Level-1 machine
 
-> The certificate will usually expire in 1 month. 
+> The certificate will usually expire, and get rotated in 1 month. 
 
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
@@ -42,7 +50,7 @@ Copy the following files from enrolled Level-2 machine to unenrolled Level-1 mac
 
 Then, run `seahorse` to double-confirm your "login" keyring is unlocked and non-empty. It may ask you to enter the previous login password. 
 
-> You could change the password but DO NOT remove the password protection! There is a known bug <https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103>
+> You may change the password but DO NOT remove the password protection! There is a known bug <https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103>
 
 You are all set! 
 
