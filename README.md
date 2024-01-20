@@ -1,4 +1,4 @@
-# Intune for Archlinux
+# Intune for Arch Linux
 
 You have two options to access MSFT resources on Arch Linux.
 
@@ -64,8 +64,6 @@ You should be able to log into Edge browser without password. If Edge is not hap
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
 
 ### Common errors
-
-#### ArchLinux side
 
 - microsoft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/microsoft/identitybroker/bin/microsoft-identity-broker: Operation not permitted
 

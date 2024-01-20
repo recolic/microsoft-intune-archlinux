@@ -28,5 +28,3 @@ package() {
   cp -r "$srcdir/usr" "$srcdir/opt" "$pkgdir/"
   cp -r "$srcdir/lib" "$pkgdir/usr/"
 }
-
-# term of use error. we cannot sign you in.
