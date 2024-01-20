@@ -1,0 +1,32 @@
+# Maintainer: Recolic K <root@recolic.net>
+
+pkgname=intune-portal
+pkgver=1.2312.35
+pkgrel=0
+pkgdesc="Microsoft Intune helps organizations manage access to corporate apps, data, and resources."
+url="https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/i/intune-portal"
+license=("GPL2")
+arch=("x86_64")
+# Official Depends: libsoup2.4-1 (>= 2.4.0), libgtk-3-0 (>= 3.21.4), msalsdk-dbusclient (>= 1.0), libssl1.1 (>= 1.1.0), libcurl4 (>= 7.16.2), libc6 (>= 2.29), libsystemd0, libdbus-1-3 (>= 1.9.14), zlib1g (>= 1:1.2.0), libatk1.0-0 (>= 1.12.4), libuuid1 (>= 2.16), libglib2.0-0 (>= 2.35.8), libpam-pwquality (>= 1.4.0-2), gnome-keyring (>= 3.36), libgtk-3-0 (>= 3.9.10), libx11-6, libjavascriptcoregtk-4.0-18, libpango-1.0-0 (>= 1.14.0), libc6 (>= 2.28), libwebkit2gtk-4.0-37 (>= 2.5.3), libsecret-1-0 (>= 0.7), libglib2.0-0 (>= 2.12.0), libpam0g (>= 0.99.7.1), libstdc++6 (>= 9), libsqlite3-0 (>= 3.7.14)
+depends=("msalsdk-dbusclient" "gnome-keyring" "libsecret" "openssl-1.1" "webkit2gtk" "libjxl>0.9.0")
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+source=("source.deb::$url/${pkgname}_${pkgver}-focal_amd64.deb")
+validpgpkeys=("")
+sha256sums=("501005d25714a1a3e26d7a2b4a2eac677ace8edd0b5869cd152308fd69bc4a61")
+install=x.install
+
+package() {
+  cd "$srcdir"
+  ar x source.deb
+  tar xvJf data.tar.xz
+
+  mkdir -p usr/bin
+  [ ! -f usr/bin/intune-portal ] && ln -s ../../opt/microsoft/intune/bin/intune-portal usr/bin/intune-portal
+  cp -r "$srcdir/usr" "$srcdir/opt" "$pkgdir/"
+  cp -r "$srcdir/lib" "$pkgdir/usr/"
+}
+
+# term of use error. we cannot sign you in.

@@ -25,7 +25,11 @@ Simply follow the official guide. <https://aka.ms/LinuxPortal>
 
 ### For Arch Linux
 
-[TODO: working in progress. see arch-l2 branch for preview]
+1. Install `intune-portal` packages in this repo. Don't forget to enable the `systemctl --user` service.
+2. Follow the official guide to setup password policy file & disk encryption.
+3. Run `intune-portal` to enroll your machine.
+
+> For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
 
 ## Move certificates from Level-2 machine to Level-1 machine
 
@@ -52,7 +56,7 @@ You are all set!
 
 ## FAQ and debug
 
-If your edge browser is not allowing you to login, check the following logs: 
+You should be able to log into Edge browser without password. If Edge is not happy, check the following logs: 
 
 1. Any error message in `journalctl --user -u microsoft-identity-broker.service`?
 2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
@@ -92,13 +96,44 @@ Sign out and sign in again.
 
 This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Either upgrade your identity broker, or rename things manually (might be error-prone).
 
-#### Ubuntu side (officially supported)
+- Cannot log into intune-portal: something went wrong (2400)
 
-- Cannot log into intune-portal, something went wrong (2400)
+Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft packages. Do `apt update` and install it again. It worked for me.
 
-Uninstall intune-portal and all other microsoft packages. Do `apt update` and install it again.
-
-- Cannot log into intune-portal, something went wrong (1001)
+- Cannot log into intune-portal: something went wrong (1001)
 
 Simply try again. It will work.
+
+- Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
+
+On archlinux, if you get this error, please make sure your `/etc/os-release` is ubuntu. This is a sample:
+
+```
+NAME="Ubuntu"
+VERSION="20.04.6 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.6 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+```
+
+If getting this problem on ubuntu... I don't know.
+
+- intune-portal crashed after code 1200:
+
+`rm -rf ~/.Microsoft ~/.cache/intune-portal` and try again.
+
+- couldn't enroll your device. There was an expected error trying to enroll the device.
+
+Terminal shows 400 bad request. I fixed this problem by `rm -rf ~/.Microsoft ~/.cache/intune-portal`, reinstall intune-portal, and enroll again.
+
+## TODO
+
+Test on Manjaro Linux.
 
