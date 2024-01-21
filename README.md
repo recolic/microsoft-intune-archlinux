@@ -27,7 +27,9 @@ Simply follow the official guide. <https://aka.ms/LinuxPortal>
 
 1. Install `intune-portal` packages in this repo. Don't forget to enable the `systemctl --user` service.
 2. Follow the official guide to setup password policy file & disk encryption.
-3. Run `intune-portal` to enroll your machine.
+3. Copy the `/etc/os-release` file from ubuntu.
+4. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
+5. Run `intune-portal` to enroll your machine.
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
 
@@ -130,6 +132,19 @@ If getting this problem on ubuntu... I don't know.
 - couldn't enroll your device. There was an expected error trying to enroll the device.
 
 Terminal shows 400 bad request. I fixed this problem by `rm -rf ~/.Microsoft ~/.cache/intune-portal`, reinstall intune-portal, and enroll again.
+
+- intune-portal white screen. journalctl shows: Unable to save to Keyring. Likely because there is no default keyring set on the machine. 
+
+Install seahorse, create a "password keyring". You MUST set a password (because of a known bug mentioned above) and then set it as default.
+
+## Tested on
+
+> fresh OS installation
+
+|Where|What|
+|----|-----|
+|ArchLinux + gnome|Level1 + Level2|
+|ArchLinux + xfce4|Level1 + Level2|
 
 ## TODO
 
