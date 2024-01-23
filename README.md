@@ -102,7 +102,9 @@ Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft pack
 
 - Cannot log into intune-portal: something went wrong (1001)
 
-Simply try again. It will work.
+This is not root cause. Check `journalctl -xe` for other error message.
+
+If there is no other error, simply try again.
 
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
 
