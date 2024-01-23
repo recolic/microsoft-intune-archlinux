@@ -21,12 +21,12 @@ You have two options to access MSFT resources on Arch Linux.
 
 ### For Ubuntu
 
-Simply follow the official guide. <https://aka.ms/LinuxPortal>
+Simply follow [the official guide](https://aka.ms/LinuxPortal)
 
 ### For Arch Linux
 
 1. Install `intune-portal` packages in this repo. Don't forget to enable the `systemctl --user` service.
-2. Follow the official guide to setup password policy file & disk encryption.
+2. Follow [the official guide](https://aka.ms/LinuxPortal) to setup password policy file & disk encryption.
 3. Copy the `/etc/os-release` file from ubuntu.
 4. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
 5. Run `intune-portal` to enroll your machine.
@@ -64,6 +64,7 @@ You should be able to log into Edge browser without password. If Edge is not hap
 2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
 3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
+5. If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
 
 ### Common errors
 
