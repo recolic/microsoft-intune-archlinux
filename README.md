@@ -156,6 +156,10 @@ I resolved this problem by setting correct `/etc/os-release` file.
 
 Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-agent telling intune-portal. If you already updated `/etc/os-release` but intune-portal is not updated, please run `systemctl enable --user --now intune-agent.timer` manually.
 
+- intune-agent: Failed to checkin with intune. Failed updating device inventory details with Intune: Unexpected failure: Bad request (Error code 308)
+
+TODO...
+
 ## Tested on
 
 > fresh OS installation
