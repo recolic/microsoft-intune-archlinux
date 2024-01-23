@@ -25,7 +25,7 @@ Simply follow [the official guide](https://aka.ms/LinuxPortal)
 
 ### For Arch Linux
 
-1. Install `intune-portal` packages in this repo. Don't forget to enable the `systemctl --user` service.
+1. Install `intune-portal` packages in this repo. Don't forget to run `systemctl enable --user --now intune-agent.timer` after installation.
 2. Follow [the official guide](https://aka.ms/LinuxPortal) to setup password policy file & disk encryption.
 3. Copy the `/etc/os-release` file from ubuntu.
 4. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
@@ -151,6 +151,10 @@ I resolved this problem by setting correct `/etc/os-release` file.
 This is not the root cause. ArchLinux has the same error message, and everything works. `journalctl -xe` shows no error message at all.
 
 I resolved this problem by setting correct `/etc/os-release` file.
+
+- intune-portal says not compliant: Upgrade to a supported distributions...
+
+Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-agent telling intune-portal. If you already updated `/etc/os-release` but intune-portal is not updated, please run `systemctl enable --user --now intune-agent.timer` manually.
 
 ## Tested on
 
