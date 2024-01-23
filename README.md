@@ -137,16 +137,20 @@ Terminal shows 400 bad request. I fixed this problem by `rm -rf ~/.Microsoft ~/.
 
 Install seahorse, create a "password keyring". You MUST set a password (because of a known bug mentioned above) and then set it as default.
 
+- intune-portal white screen on Wayland: libEGL warning: egl: failed to create dri2 screen
+
+This is not the root cause. Please look for other error message in `journalctl -xe`. The JAVA program is responsible to draw some GUI, and more likely to fail.
+
 ## Tested on
 
 > fresh OS installation
 
-|Where|What|
-|----|-----|
-|ArchLinux + gnome|Level1 + Level2|
-|ArchLinux + xfce4|Level1 + Level2|
+|Env                |Version|Tested         |
+|-------------------|-------|---------------|
+|Arch Linux + gnome |2024.01|Level1 + Level2|
+|Arch Linux + xfce4 |2024.01|Level1 + Level2|
 
-## TODO
-
-Test on Manjaro Linux.
+<!--
+|Manjaro Linux + KDE|240113 |Level1 + Level2|
+-->
 

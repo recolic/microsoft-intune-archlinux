@@ -16,13 +16,8 @@ post_install() {
     echo "Please run: systemctl enable --now --user intune-agent.timer" 1>&2
 }
 
-pre_remove()
-{
+pre_remove() {
     systemctl disable intune-daemon.socket --now
-}
-
-pre_upgrade() {
-    pre_remove
 }
 
 post_remove() {
