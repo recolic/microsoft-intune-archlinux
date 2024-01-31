@@ -64,7 +64,13 @@ You should be able to log into Edge browser without password. If Edge is not hap
 2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
 3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
-5. If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
+
+If you cannot do level-2 enroll, these additional logs might help:
+
+1. Any error message in `intune-daemon.socket, intune-daemon.service, intune-agent.timer`?
+2. Make sure `intune-daemon.socket` and user service `intune-agent.timer` is enabled.
+
+If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
 
 ### Common errors
 
