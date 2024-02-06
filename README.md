@@ -72,6 +72,19 @@ If you cannot do level-2 enroll, these additional logs might help:
 
 If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
 
+### Known bugs
+
+- Memory Leak / High RAM usage
+
+microsoft-intune-device broker service is known to be eating memory. It will eat all your RAM if running long enough. Use whatever script you like to run the following command every 12 hours:
+
+```
+# Leaks a lot
+sudo systemctl restart microsoft-identity-device-broker.service
+# Leaks little
+systemctl restart --user microsoft-identity-broker.service
+```
+
 ### Common errors
 
 - microsoft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/microsoft/identitybroker/bin/microsoft-identity-broker: Operation not permitted
