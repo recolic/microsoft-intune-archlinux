@@ -165,13 +165,9 @@ Install seahorse, create a "password keyring". You MUST set a password (because 
 
 This is not the root cause. ArchLinux has the same error message, and everything works. `journalctl -xe` shows no error message at all.
 
-I resolved this problem by setting correct `/etc/os-release` file.
-
 - intune-portal white screen: glx: failed to create drisw screen; failed to load driver: zink
 
 This is not the root cause. ArchLinux has the same error message, and everything works. `journalctl -xe` shows no error message at all.
-
-I resolved this problem by setting correct `/etc/os-release` file.
 
 - intune-portal says not compliant: Upgrade to a supported distributions...
 
