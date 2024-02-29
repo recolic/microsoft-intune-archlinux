@@ -30,8 +30,9 @@ Simply follow [the official guide](https://aka.ms/LinuxPortal)
 1. Install `intune-portal` packages in this repo. Don't forget to run `systemctl enable --user --now intune-agent.timer` after installation.
 2. Follow [the official guide](https://aka.ms/LinuxPortal) to setup password policy file & disk encryption.
 3. Copy the `/etc/os-release` file from ubuntu.
-4. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
-5. Run `intune-portal` to enroll your machine.
+4. If `lsb_release` is present in your system, uninstall or destroy it.
+5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
+6. Run `intune-portal` to enroll your machine.
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
 
@@ -147,7 +148,17 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 
-If getting this problem on ubuntu... I don't know.
+If you have `lsb_release` installed, please uninstall or destroy this program. Updating `/etc/lsb-release` is not enough.
+
+```
+sudo mv /usr/bin/lsb_release /usr/bin/lsb_release.backup
+```
+
+You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matches real Ubuntu.
+
+- Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
+
+See Above.
 
 - intune-portal crashed after code 1200:
 
@@ -176,6 +187,21 @@ Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-ag
 - intune-agent: Failed to checkin with intune. Failed updating device inventory details with Intune: Unexpected failure: Bad request (Error code 308)
 
 TODO...
+
+### FAQ & Tricks
+
+- How to delete existing enrollment data and enroll from fresh?
+
+```
+rm -rf ~/.config/microsoft-identity-broker
+sudo rm -rf /var/lib/microsoft-identity-device-broker
+mkdir -p ~/.config/microsoft-identity-broker
+
+sudo systemctl restart microsoft-identity-device-broker.service
+systemctl restart --user microsoft-identity-broker.service
+```
+
+Then run `intune-portal`.
 
 ## Tested on
 
