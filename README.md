@@ -212,4 +212,5 @@ Then run `intune-portal`.
 |Arch Linux + Xorg Gnome    |2024.01|Level1 + Level2|
 |Arch Linux + Xorg Xfce4    |2024.01|Level1 + Level2|
 |Manjaro Linux + Wayland KDE|240113 |Level1 + Level2|
+|Arch Linux + Wayland Gnome |2024.02|Level1 + Level2|
 
