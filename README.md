@@ -195,6 +195,7 @@ TODO...
 ```
 rm -rf ~/.config/microsoft-identity-broker
 sudo rm -rf /var/lib/microsoft-identity-device-broker
+rm -f ~/.local/state/log/microsoft-identity-broker
 mkdir -p ~/.config/microsoft-identity-broker
 
 sudo systemctl restart microsoft-identity-device-broker.service
