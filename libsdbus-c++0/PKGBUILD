@@ -2,7 +2,7 @@
 
 pkgname=libsdbus-c++0
 pkgver=0.8.3
-pkgrel=4
+pkgrel=5
 pkgdesc="High-level C++ D-Bus library for Linux in modern C++ (library)."
 url="https://github.com/Kistler-Group/sdbus-cpp"
 license=("GPL2")
