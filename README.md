@@ -111,6 +111,8 @@ If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GD
 
 Downgrade the `tpm2-tss` package to `3.2.0-1`, and add it into `IgnorePkg` to prevent it from being upgraded again.
 
+RCA: `ldd libmip_core.so` in Edge installation directory, you can see it depends on old tpm2-tss.
+
 - Everything seems fine, no error in log, but Edge still says `Not Syncing`
 
 Sign out and sign in again.
