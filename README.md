@@ -162,9 +162,11 @@ You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matc
 
 See Above.
 
-- intune-portal crashed after code 1200:
+- intune-portal 400 Bad Request, Couldnt enroll your device (or Open Company Portal and run a check on your device to get a current status)
 
-`rm -rf ~/.Microsoft ~/.cache/intune-portal` and try again.
+`rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune` and try again.
+
+[2024.4.27] not working.. looking for new solution.
 
 - couldn't enroll your device. There was an expected error trying to enroll the device.
 
