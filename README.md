@@ -166,11 +166,11 @@ See Above.
 
 `rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune` and try again.
 
-[2024.4.27] not working.. looking for new solution.
+If you are using intune-portal older than `1.2404.23`, please upgrade your intune-portal.
 
 - couldn't enroll your device. There was an expected error trying to enroll the device.
 
-Terminal shows 400 bad request. I fixed this problem by `rm -rf ~/.Microsoft ~/.cache/intune-portal`, reinstall intune-portal, and enroll again.
+See above.
 
 - intune-portal white screen. journalctl shows: Unable to save to Keyring. Likely because there is no default keyring set on the machine. 
 
