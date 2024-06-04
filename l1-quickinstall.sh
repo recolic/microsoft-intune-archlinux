@@ -5,7 +5,7 @@ function i () {
         makepkg -i
 }
 
-sudo pacman -Sy --noconfirm jre11-openjdk
+sudo pacman -Sy --noconfirm --asdeps jre11-openjdk
 ( i libsdbus-c++0 )
 ( i microsoft-identity-broker )
 ( i msalsdk-dbusclient )
