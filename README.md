@@ -192,6 +192,15 @@ Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-ag
 
 TODO...
 
+- intune-portal says not compliant: Sync your device with Intune
+
+If getting this error message `Non-compliant status indicated by IWS issues=[("Sync your device with Intune", "Open Company Portal and run a check on your device to get a current status."`, please:
+
+1. Search for intune-agent output starting with: `Reporting status to Intune statuses`. Check if there is any non-compliant item (usually no).
+2. Simply wait for a moment and try again.
+
+Sometimes, problem will disappear after few seconds. But it could take more than 20 minutes to fix (depending on the intune server). Be patient.
+
 ### FAQ & Tricks
 
 - How to delete existing enrollment data and enroll from fresh?
