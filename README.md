@@ -196,7 +196,7 @@ TODO...
 
 If getting this error message `Non-compliant status indicated by IWS issues=[("Sync your device with Intune", "Open Company Portal and run a check on your device to get a current status."`, please:
 
-1. Search for intune-agent output starting with: `Reporting status to Intune statuses`. Check if there is any non-compliant item (usually no).
+1. Search for intune-agent output starting with: `Reporting status to Intune statuses`. Make sure all items are compliant. (usually they are all good)
 2. Simply wait for a moment and try again.
 
 Sometimes, problem will disappear after few seconds. But it could take more than 20 minutes to fix (depending on the intune server). Be patient.
