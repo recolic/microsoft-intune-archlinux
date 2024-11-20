@@ -201,6 +201,21 @@ If getting this error message `Non-compliant status indicated by IWS issues=[("S
 
 Sometimes, problem will disappear after few seconds. But it could take more than 20 minutes to fix (depending on the intune server). Be patient.
 
+- intune-portal error `Failed to create GBM buffer of size 456x551: Invalid argument`
+
+If you get this error when clicking `sign-in`, please try:
+
+1. Run intune-portal with absolute path from terminal
+2. Set env `WEBKIT_DISABLE_DMABUF_RENDERER=1`
+
+Example:
+
+```
+WEBKIT_DISABLE_DMABUF_RENDERER=1 /opt/microsoft/intune/bin/intune-portal
+```
+
+Ref: <https://github.com/recolic/microsoft-intune-archlinux/issues/3>
+
 ### FAQ & Tricks
 
 - How to delete existing enrollment data and enroll from fresh?
