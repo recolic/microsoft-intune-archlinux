@@ -38,7 +38,7 @@ Simply follow [the official guide](https://aka.ms/LinuxPortal)
 
 ## Move certificates from Level-2 machine to Level-1 machine
 
-> The certificate will usually expire, and get rotated in 1 month. 
+> **This is not recommended, as certificate expires in 1 month & requires frequent manual maintenance.**
 
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
