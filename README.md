@@ -23,7 +23,9 @@ You have two options to access MSFT resources on Arch Linux.
 
 ### For Ubuntu
 
-Simply follow [the official guide](https://aka.ms/LinuxPortal)
+For MS employee, follow [MS official guide](https://aka.ms/LinuxPortal).
+
+For other organizations, follow official guide from your org. Ubuntu should be officially supported by them.
 
 ### For Arch Linux
 
