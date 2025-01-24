@@ -30,7 +30,7 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 ### For Arch Linux
 
 1. Install `intune-portal` packages in this repo. Don't forget to run `systemctl enable --user --now intune-agent.timer` after installation.
-2. Follow ubuntu guide above to setup password policy file & disk encryption.
+2. Follow ubuntu guide above to setup password policy file & disk encryption, or any requirements from your org.
 3. Copy the `/etc/os-release` file from ubuntu.
 4. If `lsb_release` is present in your system, uninstall or destroy it.
 5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
