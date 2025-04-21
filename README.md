@@ -33,7 +33,7 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 2. Follow ubuntu guide above to setup password policy file & disk encryption, or any requirements from your org.
 3. Copy the `/etc/os-release` file from ubuntu.
 4. If `lsb_release` is present in your system, uninstall or destroy it.
-5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**.
+5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**. ([why?](https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103))
 6. Run `intune-portal` to enroll your machine.
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
@@ -41,6 +41,8 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 ## Move certificates from Level-2 machine to Level-1 machine
 
 > **This is not recommended, as certificate expires in 1 month & requires frequent manual maintenance.**
+
+<details><summary>See Details</summary>
 
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
@@ -59,7 +61,9 @@ Then, run `seahorse` to double-confirm your "login" keyring is unlocked and non-
 
 > You may change the password but DO NOT remove the password protection! There is a known bug <https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103>
 
-You are all set! 
+You are all set!
+
+</details>
 
 ## FAQ and debug
 
