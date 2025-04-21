@@ -121,7 +121,7 @@ RCA: `ldd libmip_core.so` in Edge installation directory, you can see it depends
 
 - Everything seems fine, no error in log, but Edge still says `Not Syncing`
 
-Sign out and sign in again.
+Sign out and sign in Edge again.
 
 - Cannot find directory `.../msft-identity-broker/...`
 
@@ -166,7 +166,11 @@ You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matc
 
 - Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
 
-See Above.
+Same as previous issue.
+
+- Cannot log into intune-portal: Login box doesn't show up. Stuck at white screen.
+
+Try reboot. It works for me.
 
 - intune-portal 400 Bad Request, Couldnt enroll your device (or Open Company Portal and run a check on your device to get a current status)
 
@@ -176,7 +180,7 @@ If you are using intune-portal older than `1.2404.23`, please upgrade your intun
 
 - couldn't enroll your device. There was an expected error trying to enroll the device.
 
-See above.
+Same as previous issue.
 
 - intune-portal white screen. journalctl shows: Unable to save to Keyring. Likely because there is no default keyring set on the machine. 
 
