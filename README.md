@@ -222,6 +222,10 @@ WEBKIT_DISABLE_DMABUF_RENDERER=1 /opt/microsoft/intune/bin/intune-portal
 
 Ref: <https://github.com/recolic/microsoft-intune-archlinux/issues/3>
 
+- intune-portal is too old in this repo
+
+I will not upgrade it until it stops working.
+
 ### FAQ & Tricks
 
 - How to delete existing enrollment data and enroll from fresh?
