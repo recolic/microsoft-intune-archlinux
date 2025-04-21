@@ -182,6 +182,10 @@ If you are using intune-portal older than `1.2404.23`, please upgrade your intun
 
 Same as previous issue.
 
+- We're still checking if you can access company resources.
+
+Just wait for a few seconds and click "Refresh".
+
 - intune-portal white screen. journalctl shows: Unable to save to Keyring. Likely because there is no default keyring set on the machine. 
 
 Install seahorse, create a "password keyring". You MUST set a password (because of a known bug mentioned above) and then set it as default.
