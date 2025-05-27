@@ -174,7 +174,7 @@ Try reboot. It works for me.
 
 - intune-portal 400 Bad Request, Couldnt enroll your device (or Open Company Portal and run a check on your device to get a current status)
 
-`rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune` and try again.
+Follow the `How to delete MS account login cache` guide below, and try again.
 
 If you are using intune-portal older than `1.2404.23`, please upgrade your intune-portal.
 
@@ -189,6 +189,12 @@ Just wait for a few seconds and click "Refresh".
 - intune-portal white screen. journalctl shows: Unable to save to Keyring. Likely because there is no default keyring set on the machine. 
 
 Install seahorse, create a "password keyring". You MUST set a password (because of a known bug mentioned above) and then set it as default.
+
+- intune-portal white screen during login (after email address, before password)
+
+Check if systemctl shows any java exception. It could be device broker service issue.
+
+Try the `How to delete existing enrollment data and enroll from fresh` guide below.
 
 - intune-portal white screen on Manjaro: libEGL warning: egl: failed to create dri2 screen
 
@@ -235,6 +241,12 @@ Ref: <https://github.com/recolic/microsoft-intune-archlinux/issues/3>
 I will not upgrade it until it stops working.
 
 ### FAQ & Tricks
+
+- How to delete MS account login cache?
+
+```
+rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune
+```
 
 - How to delete existing enrollment data and enroll from fresh?
 
