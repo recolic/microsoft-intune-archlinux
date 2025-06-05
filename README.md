@@ -1,5 +1,7 @@
 # Intune for Arch Linux
 
+> **This repo will stay outdated until it stops working.** Intune is already buggy and let's don't break it further!!
+
 You have two options to access MSFT resources on Arch Linux.
 
 1. Install level-1 & level-2, enroll your Arch machine.
