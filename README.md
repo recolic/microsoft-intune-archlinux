@@ -141,6 +141,10 @@ If there is no other error, simply try again.
 
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
 
+Please check program output. It should be one of the following two errors:
+
+- Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
+
 On archlinux, if you get this error, please make sure your `/etc/os-release` is ubuntu. This is a sample:
 
 ```
@@ -166,9 +170,11 @@ sudo mv /usr/bin/lsb_release /usr/bin/lsb_release.backup
 
 You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matches real Ubuntu.
 
-- Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
+- Error calling IWS for Terms of Use: Network or I/O operation failed ; unrecognized public key / BadCertificate
 
-Same as previous issue.
+Try to upgrade your intune-portal. If this repo is too outdated, please use `aur/intune-portal-bin`. (I will upgrade this repo after validating this solution)
+
+[TODO](TODO)
 
 - Cannot log into intune-portal: Login box doesn't show up. Stuck at white screen.
 
