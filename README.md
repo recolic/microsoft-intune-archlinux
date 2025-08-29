@@ -174,7 +174,7 @@ You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matc
 
 Try to upgrade your intune-portal. If this repo is too outdated, please use `aur/intune-portal-bin`. (I will upgrade this repo after validating this solution)
 
-[TODO](TODO)
+[Screenshot](.res/1.png)
 
 - Cannot log into intune-portal: Login box doesn't show up. Stuck at white screen.
 
