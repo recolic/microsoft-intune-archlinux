@@ -172,9 +172,32 @@ You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matc
 
 - Error calling IWS for Terms of Use: Network or I/O operation failed ; unrecognized public key / BadCertificate
 
-Try to upgrade your intune-portal. If this repo is too outdated, please use `aur/intune-portal-bin`. (I will upgrade this repo after validating this solution)
+Downgrade your openssl to 3.3.4 or older.
 
-[Screenshot](.res/1.png)
+[Error Screenshot](.res/1.png)
+
+<details><summary>Detailed RCA</summary>
+
+```
+Fucking OpenSSL upstream intentionally introduced this bug:
+https://github.com/openssl/openssl/pull/23965
+
+at this commit (included since openssl 3.4.0):
+397051a40db2d68433b842e7505e8cf3c9effb36 (main)
+
+Observed regression in other projects such as:
+https://github.com/ruby/openssl/issues/734
+
+Solution 1: Downgrade to openssl-3.3.4; also add IgnorePkg=openssl into /etc/pacman.conf
+Solution 2: Write libssl_fix.so with a good version of that tiny function, use LD_PRELOAD to shadow the original buggy impl.
+```
+</details>
+
+- Couldnt enroll your device: X509\_REQ\_set\_version:passed invalid argument:crypto/x509/x509set.c
+
+Same as previous issue. Downgrade openssl to 3.3.4 or older.
+
+[Error Screenshot](.res/2.png)
 
 - Cannot log into intune-portal: Login box doesn't show up. Stuck at white screen.
 
