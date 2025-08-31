@@ -36,7 +36,8 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 3. Copy the `/etc/os-release` file from ubuntu.
 4. If `lsb_release` is present in your system, uninstall or destroy it.
 5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**. ([why?](https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103))
-6. Run `intune-portal` to enroll your machine.
+6. `[Temporary Fix]` Run [fix-libssl.sh](./fix-libssl.sh) and follow instructions.
+7. Run `intune-portal` to enroll your machine.
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
 
