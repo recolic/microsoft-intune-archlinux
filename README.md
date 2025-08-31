@@ -172,7 +172,7 @@ You can also write a fake `/usr/bin/lsb_release`. Just make sure the output matc
 
 - Error calling IWS for Terms of Use: Network or I/O operation failed ; unrecognized public key / BadCertificate
 
-Downgrade your openssl to 3.3.4 or older.
+Downgrade your openssl to 3.3.4 or older. Please use [fix-libssl.sh](./fix-libssl.sh) instead of your package manager to avoid breaking other programs.
 
 [Error Screenshot](.res/1.png)
 
@@ -188,14 +188,16 @@ at this commit (included since openssl 3.4.0):
 Observed regression in other projects such as:
 https://github.com/ruby/openssl/issues/734
 
-Solution 1: Downgrade to openssl-3.3.4; also add IgnorePkg=openssl into /etc/pacman.conf
+Solution 1: Downgrade to openssl-3.3.4
 Solution 2: Write libssl_fix.so with a good version of that tiny function, use LD_PRELOAD to shadow the original buggy impl.
 ```
 </details>
 
 - Couldnt enroll your device: X509\_REQ\_set\_version:passed invalid argument:crypto/x509/x509set.c
 
-Same as previous issue. Downgrade openssl to 3.3.4 or older.
+Same as previous issue.
+
+Downgrade your openssl to 3.3.4 or older. Please use [fix-libssl.sh](./fix-libssl.sh) instead of your package manager to avoid breaking other programs.
 
 [Error Screenshot](.res/2.png)
 
