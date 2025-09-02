@@ -11,7 +11,7 @@ You have two options to access MSFT resources on Arch Linux.
 
 > To **use** a certificate.
 
-> Disclaimer: These packages in AUR were not created or maintained by me.
+> Disclaimer: AUR `microsoft-identity-broker-bin` and `intune-portal-bin` were not created or maintained by me. But I tested, they also works.
 
 1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
 2. Install `microsoft-edge-stable-bin` from AUR. 
