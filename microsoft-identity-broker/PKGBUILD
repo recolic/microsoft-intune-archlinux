@@ -14,7 +14,6 @@ conflicts=("msft-identity-broker")
 replaces=("msft-identity-broker")
 backup=()
 source=("source.deb::$url/${pkgname}_${pkgver}_amd64.deb")
-validpgpkeys=("")
 sha256sums=("2438b186365c527f546c59e0e3a5c660c431739a12026ad89c2e0acad56ce443")
 install=x.install
 

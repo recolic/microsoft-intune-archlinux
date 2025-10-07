@@ -14,7 +14,6 @@ replaces=()
 backup=()
 # https://packages.debian.org/bullseye/amd64/libsdbus-c++0/download
 source=("source.deb::$url/${pkgname}_${pkgver}_amd64.deb")
-validpgpkeys=("")
 sha256sums=("78588d17039d3bf3096f1a0476e70eece76d732fd938e447e37a3c3c33af0b36")
 install=x.install
 
