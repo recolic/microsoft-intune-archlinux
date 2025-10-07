@@ -13,7 +13,7 @@ You have two options to access MSFT resources on Arch Linux.
 
 > Disclaimer: AUR `microsoft-identity-broker-bin` and `intune-portal-bin` were not maintained by me. But I tested, they works perfectly fine.
 
-1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. Note that they depends on `jre11-openjdk`. 
+1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. (Use quickinstall.sh as your will)
 2. Install `microsoft-edge-stable-bin` from AUR. 
 3. `[Temporary Fix]` Downgrade `tpm2-tss` to `3.2.0-1`, and add it to `IgnorePkg` in `/etc/pacman.conf`.
 
@@ -31,7 +31,7 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 
 ### For Arch Linux
 
-1. Install `intune-portal` packages in this repo. Don't forget to run `systemctl enable --user --now intune-agent.timer` after installation.
+1. Install `intune-portal` packages in this repo. Don't forget to run `systemctl enable --user --now intune-agent.timer` after installation.(Use quickinstall.sh as your will)
 2. Follow ubuntu guide above to setup password policy file & disk encryption, or any requirements from your org.
 3. Copy the `/etc/os-release` file from ubuntu.
 4. If `lsb_release` is present in your system, uninstall or destroy it.
