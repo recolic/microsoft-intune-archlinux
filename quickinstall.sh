@@ -5,7 +5,7 @@ function i () {
         makepkg -i
 }
 
-sudo pacman -Sy --noconfirm --asdeps jre11-openjdk openssl-1.1 webkitgtk
+sudo pacman -Sy --noconfirm --asdeps jre11-openjdk openssl-1.1 webkit2gtk
 ( i libsdbus-c++0 )
 ( i microsoft-identity-broker )
 ( i msalsdk-dbusclient )
