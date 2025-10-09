@@ -238,6 +238,10 @@ This is not the root cause. ArchLinux has the same error message, and everything
 
 This is not the root cause. ArchLinux has the same error message, and everything works. `journalctl -xe` shows no error message at all.
 
+- intune-portal white screen: Failed to create GBM buffer of size 456x551: Invalid argument
+
+Probably a GPU driver issue. I did `pacman -Syu` and problem gone.
+
 - intune-portal says not compliant: Upgrade to a supported distributions...
 
 Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-agent telling intune-portal. If you already updated `/etc/os-release` but intune-portal is not updated, please run `systemctl enable --user --now intune-agent.timer` manually.
