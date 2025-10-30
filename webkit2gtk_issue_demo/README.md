@@ -14,3 +14,7 @@ microsoft-identity-device-broker tried to create a window but webkit2gtk somehow
 You may run either python version or C++ version (whichever easier for you).
 
 It's your Desktop Environment issue, not intune issue. It's your responsibility to debug and fix your desktop environment.
+
+## Solution for Arch+NVIDIA
+
+Set `WEBKIT_DISABLE_DMABUF_RENDERER="1"` in /etc/environment. Credit: [greg](https://git.recolic.net/root/microsoft-intune-archlinux/-/issues/2)

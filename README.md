@@ -144,13 +144,13 @@ Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft pack
 
 This is not root cause. Check `journalctl -xe` for other error message.
 
-- Cannot log into intune-portal: errorCode 1001, WL: error in client communication
+- Cannot log into intune-portal on NVIDIA GPU: errorCode 1001, WL: error in client communication
 
 > Also known as: Error 71 (Protocol error) dispatching to Wayland display.
 
-Ref: [Click for details](webkit2gtk_issue_demo/README.md)
+Solution: Add `WEBKIT_DISABLE_DMABUF_RENDERER="1"` into /etc/environment. Webkit2gtk is started from dbus so you must set it system-wise.
 
-If there is no other error, simply try again. (reboot works for me)
+[POC](webkit2gtk_issue_demo/README.md) , Credit: [greg](https://git.recolic.net/root/microsoft-intune-archlinux/-/issues/2)
 
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
 
