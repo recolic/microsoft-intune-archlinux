@@ -1,25 +1,19 @@
 post_install() {
-    # Recolic: I believe it's not necessary to start the service at all. This service is triggered by edge from libsdbus. 
-    # I don't know why they are doing this. just leave them there. 
-	if [ -d /run/systemd/system ]; then
-		systemctl --system daemon-reload || true
-        # systemctl restart microsoft-identity-device-broker.service || true
-	fi
+    echo "Calling deb postinst..." 1>&2
+    pkill -SIGINT -x microsoft-identity-broker || :
+    pkill -SIGINT -x microsoft-identity-device-broker || :
+    systemctl --system daemon-reload >/dev/null || :
+    systemctl reload dbus || :
+    systemctl --no-reload preset microsoft-identity-device-broker.service || :
 }
 
 post_upgrade() {
-	post_install
+    post_install
 }
 
 pre_remove() {
-	if [ -d /run/systemd/system ]; then
-		systemctl stop microsoft-identity-device-broker.service || true
-	fi
-}
-
-post_remove() {
-	if [ -d /run/systemd/system ]; then
-		systemctl --system daemon-reload || true
-	fi
+    echo "Calling deb prerm..." 1>&2
+    pkill -SIGINT -x microsoft-identity-broker || :
+    pkill -SIGINT -x microsoft-identity-device-broker || :
 }
 

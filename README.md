@@ -13,7 +13,7 @@ You have two options to access MSFT resources on Arch Linux.
 
 > Disclaimer: AUR `microsoft-identity-broker-bin` and `intune-portal-bin` were not maintained by me. But I tested, they works perfectly fine.
 
-1. Install `libsdbus-c++0 msalsdk-dbusclient microsoft-identity-broker` packages in this repo. (Use quickinstall.sh as your will)
+1. Install `microsoft-identity-broker` packages in this repo. (Use quickinstall.sh as your will)
 2. Install `microsoft-edge-stable-bin` from AUR. 
 3. `[Temporary Fix]` Downgrade `tpm2-tss` to `3.2.0-1`, and add it to `IgnorePkg` in `/etc/pacman.conf`.
 
@@ -50,6 +50,7 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
 
 ```
+# TODO: double confirm if this guide still works for broker v2
 /var/lib/microsoft-identity-device-broker/1000.db
 /etc/machine-id
 /home/YourName/.config/microsoft-identity-broker/account-data.db
@@ -72,18 +73,16 @@ You are all set!
 
 You should be able to log into Edge browser without password. If Edge is not happy, check the following logs: 
 
-1. Any error message in `journalctl --user -u microsoft-identity-broker.service`?
-2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
-3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
-4. Run `ldd /usr/lib/libmsal_dbus_client.so`. Is there undefined reference? 
+1. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
+2. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
 
 If you cannot do level-2 enroll, these additional logs might help:
 
 1. Any error message in `intune-daemon.socket, intune-daemon.service, intune-agent.timer`?
-2. Make sure `intune-daemon.socket` and user service `intune-agent.timer` is enabled.
 
 If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
 
+<!-- for old broker 1.x
 ### Known bugs
 
 - Memory Leak / High RAM usage
@@ -96,9 +95,11 @@ sudo systemctl restart microsoft-identity-device-broker.service
 # Leaks little
 systemctl restart --user microsoft-identity-broker.service
 ```
+-->
 
 ### Common errors
 
+<!-- for old broker 1.x
 - microsoft-identity-broker.service: Failed at step STATE_DIRECTORY spawning /opt/microsoft/identitybroker/bin/microsoft-identity-broker: Operation not permitted
 
 This is a permission issue. Please run `chmod 777 -R /opt/microsoft` as root, **and** run `chown -R YourName /home/YourName/.config`, and restart the service. 
@@ -114,6 +115,15 @@ Possible reason and solution:
 1. Run `seahorse` and make sure your **default** keyring is unlocked, and contains **valid** certificates. 
 2. The cert in keyring doesn't match `microsoft-identity-broker` database. If you just upgraded `microsoft-identity-broker` to a newer version, remove all existing database (including `msft-identity-broker`), and do level-1 installation again.
 
+- Cannot find directory `.../msft-identity-broker/...`
+
+This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Either upgrade your identity broker, or rename things manually (might be error-prone).
+-->
+
+- microsoft-identity-device-broker.service: StatusInternal::KeyNotFound, Crypto key not found
+
+Install `opensc` and insert your Yubikey. This is necessary even if you are not going to use Yubikey auth.
+
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
 
 If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GDB shows `Thread 107 "ThreadPoolForeg" received signal SIGSEGV, Segmentation fault.`
@@ -126,10 +136,6 @@ RCA: `ldd libmip_core.so` in Edge installation directory, you can see it depends
 
 Sign out and sign in Edge again.
 
-- Cannot find directory `.../msft-identity-broker/...`
-
-This directory was renamed from `msft-identity-broker` to `microsoft-identity-broker` in latest intune. Either upgrade your identity broker, or rename things manually (might be error-prone).
-
 - Cannot log into intune-portal: something went wrong (2400)
 
 Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft packages. Do `apt update` and install it again. It worked for me.
@@ -138,7 +144,7 @@ Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft pack
 
 This is not root cause. Check `journalctl -xe` for other error message.
 
-If there is no other error, simply try again.
+If there is no other error, simply try again. (reboot works for me)
 
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
 
@@ -295,13 +301,13 @@ rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune
 - How to delete existing enrollment data and enroll from fresh?
 
 ```
+# TODO: double confirm if this guide still works for broker v2
 rm -rf ~/.config/microsoft-identity-broker
 sudo rm -rf /var/lib/microsoft-identity-device-broker
 rm -f ~/.local/state/log/microsoft-identity-broker
 mkdir -p ~/.config/microsoft-identity-broker
 
 sudo systemctl restart microsoft-identity-device-broker.service
-systemctl restart --user microsoft-identity-broker.service
 ```
 
 Then run `intune-portal`.
