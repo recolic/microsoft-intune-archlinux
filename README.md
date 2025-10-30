@@ -144,6 +144,12 @@ Unknown reason. (TODO: RCA) Uninstall intune-portal and all other microsoft pack
 
 This is not root cause. Check `journalctl -xe` for other error message.
 
+- Cannot log into intune-portal: errorCode 1001, WL: error in client communication
+
+> Also known as: Error 71 (Protocol error) dispatching to Wayland display.
+
+Ref: [Click for details](webkit2gtk_issue_demo/README.md)
+
 If there is no other error, simply try again. (reboot works for me)
 
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
@@ -244,10 +250,6 @@ This is not the root cause. ArchLinux has the same error message, and everything
 
 This is not the root cause. ArchLinux has the same error message, and everything works. `journalctl -xe` shows no error message at all.
 
-- intune-portal white screen: Failed to create GBM buffer of size 456x551: Invalid argument
-
-Set env `export WEBKIT_DISABLE_DMABUF_RENDERER=1`. Ref: [link](https://bugs.webkit.org/show_bug.cgi?id=259644)
-
 - intune-portal says not compliant: Upgrade to a supported distributions...
 
 Run `journalctl | grep intune-agent | grep Reporting` to check what is intune-agent telling intune-portal. If you already updated `/etc/os-release` but intune-portal is not updated, please run `systemctl enable --user --now intune-agent.timer` manually.
@@ -265,12 +267,11 @@ If getting this error message `Non-compliant status indicated by IWS issues=[("S
 
 Sometimes, problem will disappear after few seconds. But it could take more than 20 minutes to fix (depending on the intune server). Be patient.
 
-- intune-portal error `Failed to create GBM buffer of size 456x551: Invalid argument`
+- intune-portal white screen `Failed to create GBM buffer of size 456x551: Invalid argument`
 
 If you get this error when clicking `sign-in`, please try:
 
-1. Run intune-portal with absolute path from terminal
-2. Set env `WEBKIT_DISABLE_DMABUF_RENDERER=1`
+Set env `export WEBKIT_DISABLE_DMABUF_RENDERER=1`. Ref: [link](https://bugs.webkit.org/show_bug.cgi?id=259644)
 
 Example:
 
