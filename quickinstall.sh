@@ -5,10 +5,8 @@ function i () {
         makepkg -i
 }
 
-sudo pacman -Sy --noconfirm --asdeps jre11-openjdk openssl-1.1 webkit2gtk
-( i libsdbus-c++0 )
+sudo pacman -Sy --noconfirm --asdeps webkit2gtk
 ( i microsoft-identity-broker )
-( i msalsdk-dbusclient )
 ( i intune-portal )
 
 echo "Done. Don't forget to run 'systemctl enable --user --now intune-agent.timer' and follow the rest steps."

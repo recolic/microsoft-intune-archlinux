@@ -1,20 +1,20 @@
 # Maintainer: Recolic K <root@recolic.net>
 
 pkgname=intune-portal
-pkgver=1.2404.23
+pkgver=1.2511.7
 pkgrel=0
 pkgdesc="Microsoft Intune helps organizations manage access to corporate apps, data, and resources."
-url="https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/i/intune-portal"
+url="https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/i/intune-portal"
 license=("GPL2")
 arch=("x86_64")
-# Official Depends: libsoup2.4-1 (>= 2.4.0), libgtk-3-0 (>= 3.21.4), msalsdk-dbusclient (>= 1.0), libssl1.1 (>= 1.1.0), libcurl4 (>= 7.16.2), libc6 (>= 2.29), libsystemd0, libdbus-1-3 (>= 1.9.14), zlib1g (>= 1:1.2.0), libatk1.0-0 (>= 1.12.4), libuuid1 (>= 2.16), libglib2.0-0 (>= 2.35.8), libpam-pwquality (>= 1.4.0-2), gnome-keyring (>= 3.36), libgtk-3-0 (>= 3.9.10), libx11-6, libjavascriptcoregtk-4.0-18, libpango-1.0-0 (>= 1.14.0), libc6 (>= 2.28), libwebkit2gtk-4.0-37 (>= 2.5.3), libsecret-1-0 (>= 0.7), libglib2.0-0 (>= 2.12.0), libpam0g (>= 0.99.7.1), libstdc++6 (>= 9), libsqlite3-0 (>= 3.7.14)
-depends=("msalsdk-dbusclient" "gnome-keyring" "libsecret" "openssl-1.1" "webkit2gtk" "libjxl>0.8.0")
+# Official Depends: libwebkit2gtk-4.1-0 (>= 2.39.90), libuuid1 (>= 2.16), libssl3t64 (>= 3.0.0), libcurl4t64 (>= 7.16.2), libgtk-3-0t64 (>= 3.13.7), libsystemd0, libpam0g (>= 0.99.7.1), libpam-pwquality (>= 1.4.0-2), microsoft-identity-broker (>= 2.0.2), libsoup-3.0-0 (>= 2.4.0), libp11-kit0 (>= 0.25.0), zlib1g (>= 1:1.2.0), libc6 (>= 2.38), libsqlite3-0 (>= 3.7.14), libsecret-1-0 (>= 0.7), libdbus-1-3 (>= 1.9.14), libglib2.0-0t64 (>= 2.70.0), libc6 (>= 2.34), libatk1.0-0t64 (>= 1.12.4), libgtk-3-0t64 (>= 3.21.4), libstdc++6 (>= 13), libx11-6, libpango-1.0-0 (>= 1.14.0), gnome-keyring (>= 3.36)
+depends=("microsoft-identity-broker>2.0.2" "webkit2gtk" "gnome-keyring" "libsecret" "openssl")
 makedepends=()
 conflicts=()
 replaces=()
 backup=()
-source=("source.deb::$url/${pkgname}_${pkgver}-focal_amd64.deb")
-sha256sums=("b334cc65f73d5c7d7c98c6d2b1e8175ad9f30ecc5f5dd1c7a7bcd02130bff992")
+source=("source.deb::$url/${pkgname}_${pkgver}-noble_amd64.deb")
+sha256sums=("307bc09a47a6c76f1935c565a05371274dd86f1ae054fbc1ece38c611e8eca8f")
 install=x.install
 
 package() {
