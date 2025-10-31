@@ -15,7 +15,6 @@ You have two options to access MSFT resources on Arch Linux.
 
 1. Install `microsoft-identity-broker` packages in this repo. (Use quickinstall.sh as your will)
 2. Install `microsoft-edge-stable-bin` from AUR. 
-3. `[Temporary Fix]` Downgrade `tpm2-tss` to `3.2.0-1`, and add it to `IgnorePkg` in `/etc/pacman.conf`.
 
 ## Install Level-2 and enroll
 
@@ -125,6 +124,8 @@ This directory was renamed from `msft-identity-broker` to `microsoft-identity-br
 Install `opensc` and insert your Yubikey. This is necessary even if you are not going to use Yubikey auth.
 
 - Microsoft Edge crashed immediately on startup (SIGSEGV)
+
+> 2025.10 update: Just upgrade your microsoft-edge to latest stable. This problem has been fixed by upstream!
 
 If your Microsoft Edge crashes immediately on startup because of SIGSEGV, and GDB shows `Thread 107 "ThreadPoolForeg" received signal SIGSEGV, Segmentation fault.`
 
