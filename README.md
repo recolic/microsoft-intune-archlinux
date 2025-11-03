@@ -70,16 +70,18 @@ You are all set!
 
 ## FAQ and debug
 
-You should be able to log into Edge browser without password. If Edge is not happy, check the following logs: 
+You should be able to log into Edge browser without password.
 
-1. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
-2. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
+If intune-portal doesn't work, or Edge keeps asking you to login, check the following logs: 
 
-If you cannot do level-2 enroll, these additional logs might help:
+1. Any error message from intune-portal program? (stdout)
+2. Any error message in `sudo journalctl -u microsoft-identity-device-broker.service`? 
+3. Run `seahorse` and is there Intune entries in your `login` keyring? Is it `set as default`? 
+4. Any suspcious error message in `sudo journalctl -xe` and `journalctl -xe`?
 
-1. Any error message in `intune-daemon.socket, intune-daemon.service, intune-agent.timer`?
+If Edge login succeeded and you can access everything, but sync doesn't work (Not syncing), check the following additional logs:
 
-If everything looks good, also check `journalctl -xe` and `sudo journalctl -xe` for other information.
+1. Any error in `edge://sync-internals/`?
 
 <!-- for old broker 1.x
 ### Known bugs
