@@ -10,9 +10,9 @@ mkdir -p /tmp/.ossl332
 curl -L https://archive.archlinux.org/packages/o/openssl/openssl-3.3.2-1-x86_64.pkg.tar.zst | tar --zstd -x -C /tmp/.ossl332
 
 sudo cp /tmp/.ossl332/usr/lib/libcrypto.so.3 /usr/lib/libcrypto-332.so
-sudo cp /tmp/.ossl332/usr/lib/libssl.so.3 /usr/lib/libssl-332.so
+sudo cp /tmp/.ossl332/usr/lib/libssl.so.3    /usr/lib/libssl-332.so
 
-if command -v  >/dev/null 2>&1; then
+if command -v intune-portal >/dev/null 2>&1; then
     b=intune-portal
 elif [ -f /opt/microsoft/intune/bin/intune-portal ]; then
     b=/opt/microsoft/intune/bin/intune-portal
