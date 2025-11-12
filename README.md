@@ -294,9 +294,7 @@ I will not upgrade it until it stops working.
 
 - intune-portal SIGSEGV, cannot register URI scheme oneauth more than once
 
-Please retry. Be patient, trust me, you keep trying, it will eventually work.
-
-Updating intune-portal won't help. I already tried.
+This is not the real error. Check journal log.
 
 ### FAQ & Tricks
 
