@@ -155,6 +155,10 @@ Solution: Add `WEBKIT_DISABLE_DMABUF_RENDERER="1"` into /etc/environment. Webkit
 
 [POC](webkit2gtk_issue_demo/README.md) , Credit: [greg](https://git.recolic.net/root/microsoft-intune-archlinux/-/issues/2)
 
+- Cannot log into intune-portal: errorCode 3402
+
+This is not the real error. Please read `sudo journalctl -xe`
+
 - Cannot log into intune-portal: Terms of use error. we couldn't sign you in.
 
 Please check program output. It should be one of the following two errors:
