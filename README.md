@@ -315,7 +315,7 @@ sudo systemctl stop microsoft-identity-device-broker.service
 
 rm -rf ~/.config/microsoft-identity-broker
 sudo rm -rf /var/lib/microsoft-identity-device-broker
-rm -f ~/.local/state/log/microsoft-identity-broker
+rm -rf ~/.local/state/log/microsoft-identity-broker
 rm -rf ~/.local/state/microsoft-identity-broker
 mkdir -p ~/.config/microsoft-identity-broker
 ```
