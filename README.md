@@ -324,6 +324,7 @@ rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune ~/.local/share/intun
 
 ```
 sudo systemctl stop microsoft-identity-device-broker.service
+pkill -f /usr/bin/microsoft-identity-broker
 
 rm -rf ~/.config/microsoft-identity-broker
 sudo rm -rf /var/lib/microsoft-identity-device-broker
