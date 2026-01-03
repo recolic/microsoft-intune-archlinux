@@ -225,6 +225,10 @@ Solution 2: Write libssl_fix.so with a good version of that tiny function, use L
 ```
 </details>
 
+- intune-portal crash after login: invalid_grant, AADSTS50187: Failed to perform device authentication
+
+I'm still trying to RCA this issue. Looks like it's some server-side bug when you enroll the same device multiple times.
+
 - Couldnt enroll your device: X509\_REQ\_set\_version:passed invalid argument:crypto/x509/x509set.c
 
 Same as previous issue.
