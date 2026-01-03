@@ -163,6 +163,18 @@ This is not the real error. Please read `sudo journalctl -xe`
 
 Please check program output. It should be one of the following two errors:
 
+- Cannot log into intune-portal: Missing PRT after a successful bootstrap
+
+Please look around. Did you see an error msg similar to `Object does not exist at path "/org/freedesktop/secrets/collection/login"' was returned for API: 'WriteNoLock'`?
+
+If yes, follow the guide under that error message.
+
+- Cannot log into intune-portal: Object does not exist at path /org/freedesktop/secrets/collection/...
+
+1. Run `busctl --user tree org.freedesktop.secrets`. Does specified path exist or not?
+2. If it exists, please try to unlock it. If it doesn't exist, please create it **with a password** . (Don't know how to? Use `seahorse`)
+3. Enroll again. This error will go away. 
+
 - Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
 
 On archlinux, if you get this error, please make sure your `/etc/os-release` is ubuntu. This is a sample:
