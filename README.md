@@ -225,9 +225,27 @@ Solution 2: Write libssl_fix.so with a good version of that tiny function, use L
 ```
 </details>
 
+> This error might also happen if you try to MITM `https://*.manage-beta.microsoft.com` . self-signed cert won't work even if trusted by your OS!
+
+- Error calling IWS for Terms of Use: Network or I/O operation failed ; Refuting an intermediate cert due to an unrecognized public key depth=2
+
+This error might appear in old device-broker. Please upgrade your intune and device broker to latest version.
+
+If you have some specific reason to refuse the `Java-to-Rust` upgrade, please install latest JAVA release `microsoft-identity-broker-bin 2.0.1-5` from AUR. At 2026-02-01, it's tested to be working fine with `intune-portal-bin 1.2511.7-1`
+
 - intune-portal crash after login: invalid_grant, AADSTS50187: Failed to perform device authentication
 
-I'm still trying to RCA this issue. Looks like it's some server-side bug when you enroll the same device multiple times.
+This is a server-side bug when you enroll the same device multiple times. But there's still something you can try, even if I cannot guarantee it will work. It works for me (at least):
+
+1. Uninstall both device-broker and intune-portal, clear all data, including keyring.
+2. Reboot.
+3. Downgrade to latest JAVA-based device-broker in AUR: `microsoft-identity-broker-bin 2.0.1-5`
+4. Use latest intune-portal-bin in AUR: `intune-portal-bin 1.2511.7-1` (works for me in 2026.2.1)
+5. Enroll again. Good luck.
+
+- intune-portal crash after login: AADSTS70043: The refresh token has expired or is invalid due to sign-in frequency checks by conditional access
+
+Please clear all data **and your keyring** before try again. Ref How to clear data in FAQ below.
 
 - Couldnt enroll your device: X509\_REQ\_set\_version:passed invalid argument:crypto/x509/x509set.c
 
@@ -316,12 +334,17 @@ I will not upgrade it until it stops working.
 
 This is not the real error. Check journal log.
 
+Please DO NOT ask about this error. It won't cause any real issue.
+
 ### FAQ & Tricks
 
 - How to clear intune-portal data?
 
 ```
 rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune ~/.local/share/intune-portal
+
+# Optional: Manually clear all intune-related shit in default & login keyring.
+seahorse
 ```
 
 - How to clear device-broker data?
@@ -335,6 +358,9 @@ sudo rm -rf /var/lib/microsoft-identity-device-broker
 rm -rf ~/.local/state/log/microsoft-identity-broker
 rm -rf ~/.local/state/microsoft-identity-broker
 mkdir -p ~/.config/microsoft-identity-broker ~/.local/state/microsoft-identity-broker
+
+# Optional: Manually clear all broker-related shit in default & login keyring.
+seahorse
 ```
 
 Then run `intune-portal`.
