@@ -334,7 +334,7 @@ rm -rf ~/.config/microsoft-identity-broker
 sudo rm -rf /var/lib/microsoft-identity-device-broker
 rm -rf ~/.local/state/log/microsoft-identity-broker
 rm -rf ~/.local/state/microsoft-identity-broker
-mkdir -p ~/.config/microsoft-identity-broker
+mkdir -p ~/.config/microsoft-identity-broker ~/.local/state/microsoft-identity-broker
 ```
 
 Then run `intune-portal`.
