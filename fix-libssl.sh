@@ -20,6 +20,7 @@ else
     b="</path/to/intune-portal>"
 fi
 
+echo "** Warning: Known issue: libngtcp2_crypto_ossl.so.0 (ref https://github.com/recolic/microsoft-intune-archlinux/issues/22)"
 echo "Please run intune-portal like this:"
 echo "  env LD_PRELOAD=/usr/lib/libcrypto-332.so:/usr/lib/libssl-332.so $b"
 

@@ -1,7 +1,7 @@
 # Maintainer: Recolic K <root@recolic.net>
 
 pkgname=intune-portal
-pkgver=1.2511.7
+pkgver=1.2511.11
 pkgrel=0
 pkgdesc="Microsoft Intune helps organizations manage access to corporate apps, data, and resources."
 url="https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/i/intune-portal"
@@ -14,7 +14,7 @@ conflicts=()
 replaces=()
 backup=()
 source=("source.deb::$url/${pkgname}_${pkgver}-noble_amd64.deb")
-sha256sums=("307bc09a47a6c76f1935c565a05371274dd86f1ae054fbc1ece38c611e8eca8f")
+sha256sums=("30b56b3b53979156a9a4bcb3c9dc419de87586527dace44ef454cd72aebda7c4")
 install=x.install
 
 package() {
