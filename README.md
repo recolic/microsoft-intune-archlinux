@@ -229,9 +229,9 @@ Solution 2: Write libssl_fix.so with a good version of that tiny function, use L
 
 - Error calling IWS for Terms of Use: Network or I/O operation failed ; Refuting an intermediate cert due to an unrecognized public key depth=2
 
-This error might appear in old device-broker. Please upgrade your intune and device broker to latest version.
+intune-portal is known to be using hardcoded cert pin. Please upgrade your intune-portal to latest version.
 
-If you have some specific reason to refuse the `Java-to-Rust` upgrade, please install latest JAVA release `microsoft-identity-broker-bin 2.0.1-5` from AUR. At 2026-02-01, it's tested to be working fine with `intune-portal-bin 1.2511.7-1`
+If you have some specific reason to refuse the `Java-to-Rust` upgrade, please install latest JAVA release `microsoft-identity-broker-bin 2.0.1-5` from AUR. At 2026-02-26, it's tested to be working fine with `intune-portal 1.2511.11`
 
 - intune-portal crash after login: invalid_grant, AADSTS50187: Failed to perform device authentication
 
