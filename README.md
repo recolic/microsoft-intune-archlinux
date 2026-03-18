@@ -341,6 +341,7 @@ Please DO NOT ask about this error. It won't cause any real issue.
 - How to clear intune-portal data?
 
 ```
+# Warning: You won't be able to access Microsoft Edge until login again.
 dsreg --cleanup
 
 # Optional: Manually clear all intune-related shit in default & login keyring.
@@ -350,6 +351,7 @@ seahorse
 - How to clear device-broker data?
 
 ```
+# Warning: You won't be able to access Microsoft Edge until login again.
 sudo dsreg --cleanup
 
 # Optional: Manually clear all broker-related shit in default & login keyring.
