@@ -341,7 +341,7 @@ Please DO NOT ask about this error. It won't cause any real issue.
 - How to clear intune-portal data?
 
 ```
-rm -rf ~/.Microsoft ~/.cache/intune-portal ~/.config/intune ~/.local/share/intune-portal
+dsreg --cleanup
 
 # Optional: Manually clear all intune-related shit in default & login keyring.
 seahorse
@@ -350,14 +350,7 @@ seahorse
 - How to clear device-broker data?
 
 ```
-sudo systemctl stop microsoft-identity-device-broker.service
-pkill -f /usr/bin/microsoft-identity-broker
-
-rm -rf ~/.config/microsoft-identity-broker
-sudo rm -rf /var/lib/microsoft-identity-device-broker
-rm -rf ~/.local/state/log/microsoft-identity-broker
-rm -rf ~/.local/state/microsoft-identity-broker
-mkdir -p ~/.config/microsoft-identity-broker ~/.local/state/microsoft-identity-broker
+sudo dsreg --cleanup
 
 # Optional: Manually clear all broker-related shit in default & login keyring.
 seahorse
