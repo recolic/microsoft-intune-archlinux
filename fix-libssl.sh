@@ -5,6 +5,7 @@ set -e
 echo "-------------------------"
 echo "--   fix libssl        --"
 echo "-------------------------"
+echo "Note: This is not a long-term solution, since more and more archlinux lib will move to new openssl version... More and more lib will break."
 
 mkdir -p /tmp/.ossl332
 curl -L https://archive.archlinux.org/packages/o/openssl/openssl-3.3.2-1-x86_64.pkg.tar.zst | tar --zstd -x -C /tmp/.ossl332
@@ -23,5 +24,4 @@ fi
 echo "** Warning: Known issue: libngtcp2_crypto_ossl.so.0 (ref https://github.com/recolic/microsoft-intune-archlinux/issues/22)"
 echo "Please run intune-portal like this:"
 echo "  env LD_PRELOAD=/usr/lib/libcrypto-332.so:/usr/lib/libssl-332.so $b"
-
 
