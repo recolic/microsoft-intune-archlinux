@@ -2,12 +2,11 @@
 
 > **This repo will stay outdated until it stops working.** Intune is already buggy and let's don't break it further!!
 
-You have two options to access MSFT resources on Arch Linux.
+## Before even start
 
-1. Install level-1 & level-2, enroll your Arch machine.
-2. Install level-1 & level-2 in another Ubuntu VM, enroll your Ubuntu VM. Install level-1 on your Arch, and copy certificate from Ubuntu to Arch.
+Microsoft Intune is pretty sensitive to your system environment (See how many "Common errors" below!). Please consider if you would prefer [intuneme](https://github.com/frostyard/intuneme) or [himmelblau](https://github.com/himmelblau-idm/himmelblau), or even separate VM. It might save your whole week.
 
-## Install Level-1
+## Install Step-1
 
 > To **use** a certificate.
 
@@ -16,7 +15,7 @@ You have two options to access MSFT resources on Arch Linux.
 1. Install `microsoft-identity-broker` packages in this repo. (Use quickinstall.sh as your will)
 2. Install `microsoft-edge-stable-bin` from AUR. 
 
-## Install Level-2 and enroll
+## Install Step-2 and enroll
 
 > To **generate** a certificate.
 
@@ -40,7 +39,7 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
 
-## Move certificates from Level-2 machine to Level-1 machine
+## (deprecated) Move certificates from Level-2 machine to Level-1 machine
 
 > **This is not recommended, as certificate expires in 1 month & requires frequent manual maintenance.**
 
