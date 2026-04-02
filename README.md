@@ -6,6 +6,8 @@
 
 Microsoft Intune is pretty sensitive to your system environment (See how many "Common errors" below!). Please consider if you would prefer [intuneme](https://github.com/frostyard/intuneme) or [himmelblau](https://github.com/himmelblau-idm/himmelblau), or even separate VM. It might save your whole week.
 
+If you are Microsoft Employee, detailed guide for these 3rd-party tools could be found internally.
+
 ## Install Step-1
 
 > To **use** a certificate.
