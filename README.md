@@ -1,6 +1,6 @@
 # Intune for Arch Linux
 
-> **This repo will stay outdated until it stops working.** Intune is already buggy and let's don't break it further!!
+> To avoid breaking existing setup, **this repo will stay outdated until it stops working.**
 
 ## Before even start
 
