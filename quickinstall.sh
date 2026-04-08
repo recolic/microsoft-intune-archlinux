@@ -5,7 +5,7 @@ function i () {
         makepkg -i
 }
 
-sudo pacman -Sy --noconfirm --asdeps --needed webkit2gtk opensc
+sudo pacman -Sy --noconfirm --asdeps --needed webkit2gtk-4.1 opensc
 ( i microsoft-identity-broker )
 ( i intune-portal )
 
