@@ -36,38 +36,10 @@ For other organizations, follow official guide from your org. Ubuntu should be o
 3. Copy the `/etc/os-release` file from ubuntu.
 4. If `lsb_release` is present in your system, uninstall or destroy it.
 5. [none-gnome user only] Install `seahorse` and make sure you have a default keyring **with password**. ([why?](https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103))
-6. `[Temporary Fix]` Run [fix-libssl.sh](./fix-libssl.sh) and follow instructions.
+6. [optional] Go through [README_smartcard.md](./README_smartcard.md) if your org requires smartcard.
 7. Run `intune-portal` to enroll your machine.
 
 > For disk encryption settings, theoretically, dm-crypt (with or without LUKS) + LVM for root partition should be enough.
-
-## (deprecated) Move certificates from Level-2 machine to Level-1 machine
-
-> **This is not recommended, as certificate expires in 1 month & requires frequent manual maintenance.**
-
-<details><summary>See Details</summary>
-
-Copy the following files from enrolled Level-2 machine to unenrolled Level-1 machine: 
-
-```
-# TODO: double confirm if this guide still works for broker v2
-/var/lib/microsoft-identity-device-broker/1000.db
-/etc/machine-id
-/home/YourName/.config/microsoft-identity-broker/account-data.db
-/home/YourName/.config/microsoft-identity-broker/broker-data.db
-/home/YourName/.config/microsoft-identity-broker/cookies.db
-/home/YourName/.local/share/keyrings/login.keyring
-```
-
-**Reboot** to make sure gnome-keyring-daemon is using the latest keyring file. 
-
-Then, run `seahorse` to double-confirm your "login" keyring is unlocked and non-empty. It may ask you to enter the previous login password. 
-
-> You may change the password but DO NOT remove the password protection! There is a known bug <https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/103>
-
-You are all set!
-
-</details>
 
 ## FAQ and debug
 
@@ -175,6 +147,10 @@ If yes, follow the guide under that error message.
 1. Run `busctl --user tree org.freedesktop.secrets`. Does specified path exist or not?
 2. If it exists, please try to unlock it. If it doesn't exist, please create it **with a password** . (Don't know how to? Use `seahorse`)
 3. Enroll again. This error will go away. 
+
+- Cannot log into intune-portal: No certificate detected
+
+If your organization enforced PRMFA (PIV smartcard) policy, refer to [README_smartcard.md](./README_smartcard.md). Otherwise, click `sign in another way`.
 
 - Error calling IWS for Terms of Use: Unexpected failure: Internal Server Error
 
