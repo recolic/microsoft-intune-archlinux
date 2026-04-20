@@ -12,19 +12,21 @@ Before all, please make sure you have installed:
 
 make sure you have `microsoft-identity-broker > 2.0.2`.
 
-## [step 1-hardware] `ykman piv info` should show your yubikey and cert.
+## [step 1-competitor] `ps aux | grep scdaemon` should NOT be running.
 
-no yubikey? Refer to other guide about "why my yubikey doesn't work".
-
-no cert? Ask your employer/university "Hey how to setup my yubikey".
+scdaemon is alive? It's for GPG. To temporarily disable it, add `disable-scdaemon` into `~/.gnupg/gpg-agent.conf` then `gpg-connect-agent reloadagent /bye`
 
 ## [step 2-middleware] `systemctl status pcscd` should be running, and 
 
 pcscd not running? please install pcscd and enable it.
 
-## [step 3-competitor] `ps aux | grep scdaemon` should NOT be running.
+> `LIBUSB_ERROR_BUSY` error? double check if your step-1 works.
 
-scdaemon is alive? It's for GPG. To temporarily disable it, add `disable-scdaemon` into `~/.gnupg/gpg-agent.conf` then `gpg-connect-agent reloadagent /bye`
+## [step 3-hardware] `ykman piv info` should show your yubikey and cert.
+
+no yubikey? Refer to other guide about "why my yubikey doesn't work".
+
+no cert? Ask your employer/university "Hey how to setup my yubikey".
 
 ## [step 4-middleware] `pkcs15-tool --list-certificates` should show your yubikey.
 
