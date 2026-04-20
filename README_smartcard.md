@@ -20,7 +20,7 @@ scdaemon is alive? It's for GPG. To temporarily disable it, add `disable-scdaemo
 
 pcscd not running? please install pcscd and enable it.
 
-> `LIBUSB_ERROR_BUSY` error? double check if your step-1 works.
+> `LIBUSB_ERROR_BUSY` error? double check if your step-1 works. `sudo usbreset` might help.
 
 ## [step 3-hardware] `ykman piv info` should show your yubikey and cert.
 
