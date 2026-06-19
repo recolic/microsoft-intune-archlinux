@@ -71,6 +71,17 @@ systemctl restart --user microsoft-identity-broker.service
 ```
 -->
 
+#### intune-agent.service returns "Skipping checkin with Intune: Cannot checkin before a user logs in" or "Last check-in" not updating in InTune
+The issue occurs because `intune-agent` expects configuration files in `~/.local/state/intune`, but they're actually located in `~/.config/intune` (created by intune-portal during enrollment). Create a symlink to resolve this:
+
+```
+ln -sfn ~/.config/intune ~/.local/state/intune
+systemctl --user restart intune-agent.timer
+systemctl --user start intune-agent.service
+```
+
+After this, `intune-agent.service` should report "Successfully checked in with Intune" and your "Last check-in" should update each time the timer runs.
+
 ### Common errors
 
 <!-- for old broker 1.x
